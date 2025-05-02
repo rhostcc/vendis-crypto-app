@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:vendis_crypto_app/devices.dart';
+import 'package:vendis_crypto_app/login.dart';
+import 'package:vendis_crypto_app/dashboard.dart';
+import 'package:vendis_crypto_app/more.dart';
 
 void main() {
   runApp(const VendisApp());
@@ -11,153 +15,15 @@ class VendisApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Cobros QR Vendis',
-      home: const LoginScreen(),
       theme: ThemeData(fontFamily: "Montserrat"),
       debugShowCheckedModeBanner: true,
-    );
-  }
-}
-
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(
-        255,
-        255,
-        255,
-        255,
-      ), // Naranja de fondo
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('assets/vendis-logo.png', width: 250),
-              const SizedBox(height: 12),
-              const Text(
-                'Abona, recibe y retira crypto\ndesde donde estés',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.black, fontSize: 16),
-              ),
-              const SizedBox(height: 40),
-              Container(
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 6,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Usuario / Email',
-                        filled: true,
-                        fillColor: Colors.grey[200],
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide.none,
-                        ),
-                        prefixIcon: Icon(
-                          Icons.person,
-                          color: Colors.grey[600],
-                        ), // Icono de usuario
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        hintText: 'Contraseña',
-                        filled: true,
-                        fillColor: Colors.grey[200],
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide.none,
-                        ),
-                        prefixIcon: Icon(
-                          Icons.password,
-                          color: Colors.grey[600],
-                        ), // Icono de contraseña
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          '¿Olvidaste tu contraseña?',
-                          style: TextStyle(color: Colors.black54),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color.fromRGBO(255, 110, 5, 1),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                        ),
-                        child: const Text(
-                          'Iniciar sesión',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.fingerprint, size: 24, color: Colors.grey),
-                          SizedBox(width: 8),
-                          Text(
-                            'Usar biometría',
-                            style: TextStyle(color: Colors.black87),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    RichText(
-                      text: TextSpan(
-                        text: '¿No tienes una cuenta? ',
-                        style: const TextStyle(color: Colors.black87),
-                        children: [
-                          TextSpan(
-                            text: 'Regístrate',
-                            style: const TextStyle(
-                              color: Color.fromRGBO(255, 110, 5, 1),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const Login(),
+        "/dashboard": (context) => const Dashboard(),
+        "/devices": (context) => const Devices(),
+        "/more": (context) => const More(),
+      },
     );
   }
 }
