@@ -21,8 +21,9 @@ class TransactionItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.grey[50],
         borderRadius: BorderRadius.circular(12),
-        border:
-            isCredit ? null : Border.all(color: Colors.purpleAccent, width: 2),
+        border: null,
+        /* border:
+            isCredit ? null : Border.all(color: Colors.purpleAccent, width: 2), */
       ),
       child: Row(
         children: [

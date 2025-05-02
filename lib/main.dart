@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vendis_crypto_app/devices.dart';
 import 'package:vendis_crypto_app/login.dart';
 import 'package:vendis_crypto_app/dashboard.dart';
+import 'package:vendis_crypto_app/movements.dart';
 import 'package:vendis_crypto_app/more.dart';
 
 void main() {
@@ -22,6 +23,7 @@ class VendisApp extends StatelessWidget {
         "/": (context) => const Login(),
         "/dashboard": (context) => const Dashboard(),
         "/devices": (context) => const Devices(),
+        "/movements": (context) => const Movements(),
         "/more": (context) => const More(),
       },
     );

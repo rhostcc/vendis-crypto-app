@@ -13,7 +13,7 @@ class ActionButton extends StatelessWidget {
       width: 80,
       height: 82,
       decoration: BoxDecoration(
-        color: const Color.fromRGBO(255, 110, 5, 1), // naranja
+        color: const Color.fromRGBO(255, 110, 5, 1),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(

@@ -9,26 +9,23 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        //title: const Text("Vendis QR"),
+        //title: Image.asset('assets/vendis-logo.png', width: 50),
+        title: SizedBox(
+          height: 40,
+          child: Align(
+            alignment: Alignment.center,
+            child: Image.asset('assets/vendis-logo-white.png', height: 40),
+          ),
+        ),
+        backgroundColor: const Color.fromRGBO(255, 110, 5, 1),
+        automaticallyImplyLeading: false, // 🚫 Oculta la flecha de retroceso
+      ),
       backgroundColor: Colors.white, // Naranja de fondo
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 16),
-            // Android version banner
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: const Text(
-                "Android 10",
-                style: TextStyle(
-                  color: Colors.orange,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
             const SizedBox(height: 16),
             // Wallet Balance Box
             Container(
@@ -116,6 +113,24 @@ class Dashboard extends StatelessWidget {
                       amount: "USDT 12,35",
                       date: "29/04/2023 - 12:30 am",
                       isCredit: true,
+                    ),
+                    TransactionItem(
+                      type: "Crédito",
+                      amount: "USDT 12,35",
+                      date: "29/04/2023 - 12:30 am",
+                      isCredit: true,
+                    ),
+                    TransactionItem(
+                      type: "Crédito",
+                      amount: "USDT 12,35",
+                      date: "29/04/2023 - 12:30 am",
+                      isCredit: true,
+                    ),
+                    TransactionItem(
+                      type: "Débito",
+                      amount: "USDT 12,35",
+                      date: "29/04/2023 - 12:30 am",
+                      isCredit: false,
                     ),
                     TransactionItem(
                       type: "Débito",
